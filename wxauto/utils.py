@@ -217,3 +217,9 @@ def ReadClipboardData():
             raise ValueError
         Dict[str(i)] = filenames
     return Dict
+
+# str不是16的倍数那就补足为16的倍数
+def add_to_16(value):
+    while len(value) % 16 != 0:
+        value += '\0'
+    return str.encode(value)
